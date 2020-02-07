@@ -20,7 +20,7 @@
           },
           {
             "field": "name",
-            "notLike": "[concat(parameters('prefix'), '_*')]"
+            "notLike": "[concat(parameters('prefix'), '-*')]"
           }
         ]
       },
