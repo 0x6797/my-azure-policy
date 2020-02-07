@@ -1,32 +1,32 @@
 {
-    "properties": {
-        "displayName": "Name with a prefix.",
-        "description": "Enforce a name on the Resource Group with the prefix.",
-        "mode": "All",
-        "parameters": {
-            "prefix": {
-                "type": "String",
-                "metadata": {
-                    "description": "Prefix to use for names."
-                }
-            }
-        },
-        "policyRule": {
-            "if": {
-                "allOf": [
-                    {
-                        "field": "type",
-                        "equals": "Microsoft.Resources/subscriptions/resourceGroups"
-                    },
-                    {
-                        "field": "name",
-                        "notLike": "[concat(parameters('prefix'), '_*')]"
-                    }
-                ]
-            },
-            "then": {
-                "effect": "deny"
-            }
+  "properties": {
+    "displayName": "Name with a prefix.",
+    "description": "Enforce a name on the Resource Group with the prefix.",
+    "mode": "All",
+    "parameters": {
+      "prefix": {
+        "type": "String",
+        "metadata": {
+          "description": "Prefix to use for names."
         }
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+          },
+          {
+            "field": "name",
+            "notLike": "[concat(parameters('prefix'), '_*')]"
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
     }
+  }
 }
